@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    <script>
+        var name = [[${person.name}]];
+        alert(name);
+
+        var person = [[${person}]]
+        console.log(person)
+    </script>-->
+
+    <script th:inline="javascript">
+        var name = [[${person.name}]];
+        alert(name);
+
+        /* 객체는 json 형식으로 처리됨 */
+        var person = [[${person}]]
+        console.log(person)
+    </script>
+
+    <!-- 자바스크립트 내에서 타임리프 사용시
+        [# th:... ] 시작
+        [/] 끝    -->
+    <script th:inline="javascript">
+        [# th:each="person, personStat : ${people}"]
+            console.log([[${person}]]);
+        [/]
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
+    </script>

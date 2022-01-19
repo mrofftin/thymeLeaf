@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border:1px solid yellowgreen;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>address</th>
+        </tr>
+        <tr th:each="person : ${people}">
+            <td th:text="${person.name}">이름</td>
+            <td th:text="${person.age}">나이</td>
+            <td th:text="${person.address}">주소</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+
+            <th>count</th>
+            <th>name</th>
+            <th>age</th>
+            <th>address</th>
+            <th>상태</th>
+        </tr>
+        <tr th:each="person, personStat : ${people}">
+<!--        <tr th:each="person : ${people}"> personStat 생략가능 -->
+            <td th:text="${personStat.count}">카운트</td>
+            <td th:text="${person.name}">이름</td>
+            <td th:text="${person.age}">나이</td>
+            <td th:text="${person.address}">주소</td>
+            <td>
+                <span th:text="${personStat.index}"></span>
+                <span th:text="${personStat.even}"></span>
+                <span th:text="${personStat.first}"></span>
+                <!--<span th:text="${personStat.current}"></span>-->
+            </td>
+        </tr>
+    </table>
+<!-- 연산 기능-->
+<li th:text="10 * 10"></li>
+<li th:text="10 % 3"></li>
+<!-- 비교연산-->
+<li th:text="10 gt 3"></li>
+<li th:text="10 ge 3"></li>
+<li th:text="10 == 3"></li>
+<li th:text="10 != 3"></li>
+<li th:text="10 <= 3"></li>
+</body>
+</html>

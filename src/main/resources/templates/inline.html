@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 기본값 : escape 처리 : 보안상 태그로 인식되지 못하도록 하기 위해서 -->
+<p th:text="${name}"></p>
+<!--인라인-->
+<p>[[${name}]]</p>
+---------------------------
+<p th:text="${name2}"></p>
+<!-- unEscape -->
+<p th:utext="${name2}"></p>
+----------------------
+<!--escape-->
+<p>[[${name2}]]</p>
+<!-- unEscape -->
+<p>[(${name2})]</p>
+
+</body>
+</html>

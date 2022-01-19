@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border:1px solid yellowgreen;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>count</th>
+        <th>name</th>
+        <th>age</th>
+        <th>address</th>
+    </tr>
+    <tr th:each="person : ${people}">
+        <td th:text="${personStat.count}">번호</td>
+        <td th:text="${person.name}">이름</td>
+        <td>
+            <span th:text="${person.age}">나이</span>
+            <span th:text="청소년" th:if="${person.age lt 20}">나이</span>
+            <span th:text="청년" th:if="${person.age ge 20}">나이</span>
+        </td>
+        <td th:text="${person.address}">주소</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>count</th>
+        <th>name</th>
+        <th>age</th>
+        <th>address</th>
+    </tr>
+    <tr th:each="person : ${people}">
+        <td th:text="${personStat.count}">번호</td>
+        <td th:text="${person.name}">이름</td>
+        <td th:switch="${person.age}">
+            <span th:case="10">청소년</span>
+            <span th:case="20">청년</span>
+            <span th:case="30">장년</span>
+            <span th:case="*">기타등등</span>
+        </td>
+        <td th:text="${person.address}">주소</td>
+    </tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--객체 처리 -->
+<p th:text="${person.name}">이름</p>
+<p th:text="${person.getAge()}">나이</p>
+<p th:text="${person.getAddress()}">주소</p>
+<br><br>
+<!--리스트 객체 처리 -->
+<p th:text="${list[0].name}">이름</p>
+<p th:text="${list[0].getAge()}">나이</p>
+<p th:text="${list[1].getAddress()}">주소</p>
+
+
+
+</body>
+</html>
